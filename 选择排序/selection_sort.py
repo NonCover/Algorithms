@@ -13,14 +13,13 @@ def findSmallest(arr):
             smallest = arr[i]
             smallest_index = i
     return  smallest_index
-
 def solution(arr):
     '''
     :param arr: 数组
     :return: 排序后的数组
     '''
     newArr = []
-    for i in range(len(arr)):
+    for i in range(len(arr)): 
         smallest = findSmallest(arr)
         newArr.append(arr.pop(smallest))   # 删除arr的最小值并将该值加入到新数组
     return newArr
