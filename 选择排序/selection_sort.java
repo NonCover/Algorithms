@@ -33,7 +33,6 @@ public class selection_sort {
         for (int i = 0; i < n; i++){
             smallest = findSmallest(arr);
             newArr[i] = arr[smallest];
-
             arr = del(arr, smallest);
         }
         return newArr;
