@@ -23,11 +23,12 @@ def find_Least_stand(province):
         stand_covered = set()   # 记录覆盖过的省份
         for stand_name, stand_cover_province in stand_cover.items():
             stand_in = province & stand_cover_province      # 交际运算， 获取覆盖最多未被覆盖的广播站
-            if len(stand_in) > len(stand_covered):
-                stand = stand_name
-                stand_covered = stand_in
-        needed_stand.add(stand)
-        province -= stand_covered
+            if len(stand_in) > len(stand_covered):  # 当前包含的省份比上一个的多
+                stand = stand_name      # 更新
+                stand_covered = stand_in    # 更新
+        needed_stand.add(stand)     # 更新需要的广播站
+        province -= stand_covered   # 从总集合中删除包含过的元素
+
     return needed_stand
 
 if __name__ == "__main__":
