@@ -10,7 +10,7 @@ def dp(word1, word2):
     # 创建一个 行为 word1， 列为 word2 的二维数组
     arr = [[0 for _ in range(len(word2))] for _ in range(len(word1))]
     '''
-        arr如下所示
+        arr如下所示 
               f o s h
             f 0 0 0 0
             i 0 0 0 0
