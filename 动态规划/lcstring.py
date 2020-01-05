@@ -7,15 +7,9 @@ def dp(s1, s2):
     res = 0 # 需要定义一个变量 每次来保存当前公共子串的最大长度
     for i in range(len(s1)):
         for j in range(len(s2)):
-            if i == 0 and j == 0 and s1[i] == s2[j]:
+            if i == 0 or j == 0 and s1[i] == s2[j]:
                 arr[i][j] = 1
                 res = arr[i][j]
-            elif i == 0 and s1[i] == s2[j]:
-                arr[i][j] = 1
-                res = 1
-            elif j == 0 and s1[i] == s2[j]:
-                arr[i][j] = 1
-                res = 1
             else:
                 if s1[i] == s2[j]:
                     arr[i][j] = arr[i-1][j-1] + 1
