@@ -22,7 +22,7 @@ def solution(arr, S):
     subset = np.zeros((len(arr), S + 1), dtype=bool)
     subset[0, :] = False
     subset[:, 0] = True
-    if arr[0] < S:
+    if arr[0] <= S:
         subset[0, arr[0]] = True
     for i in range(1, len(arr)):
         for s in range(1, S + 1):
@@ -37,6 +37,6 @@ def solution(arr, S):
     return subset[r - 1, c - 1]
 
 if __name__ == "__main__":
-    arr = [26, 14, 11, 4, 5, 2, 3]
+    arr = [2, 3, 4]
     # print(solution(arr, len(arr) - 1, 9))
-    print(solution(arr, 26))
+    print(solution(arr, 2))
