@@ -41,4 +41,5 @@ def main(arr):
     print(arr)
 
 if __name__ == "__main__":
+    # 完整二叉树:
     main([4, 2, 6, 8, 3, 10, 1, 0, 7, 5])
