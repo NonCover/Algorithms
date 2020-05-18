@@ -7,18 +7,19 @@
 """
 import  collections
 edeges = collections.defaultdict(list)
-edeges[0] = [1, 2]
-edeges[1] = [3]
+edeges[1] = [2, 4]
 edeges[2] = [3]
+edeges[4] = [3]
+# edeges[3] = [4]
 nums = 4    ## 节点个数
 """
 DFS解法
 """
 def topo_sort1():
     ## 一个数组来保存一个节点是否访问过，0 = 为访问 1 = 访问过 2 = 访问完毕
-    seen = [0] * nums
+    seen = [0] * (nums + 1)
     res = []    ## 存放拓扑排序结果
-    ## 递归实现（相当于栈）
+    ## 递归实现（栈空间）
     def dfs(i):
         ## 访问过，说明有环
         if seen[i] == 1:
@@ -38,7 +39,7 @@ def topo_sort1():
         res.append(i)
         return True
 
-    for i in range(nums):
+    for i in range(1, nums + 1):
         if not dfs(i):
             """如果存在环就无法进行拓扑排序"""
             return []
@@ -50,12 +51,12 @@ BFS解法
 """
 def topo_sort2():
     ## 存放的是每个节点的入度
-    in_degree = [0] * nums
-    for i in range(nums):
+    in_degree = [0] * (nums + 1)
+    for i in range(1, nums + 1):
         for j in edeges[i]:
             in_degree[j] += 1
     ## 队列实现BFS，把入度为0加进去
-    queue = collections.deque([i for i in range(nums) if in_degree[i] == 0])
+    queue = collections.deque([i for i in range(1, nums) if in_degree[i] == 0])
     res = []    ## 存放结果
     while queue:
         curr = queue.popleft()
@@ -67,7 +68,6 @@ def topo_sort2():
     ## 如果结果数组的长度不等于需要存放的长度，则说明图存在环
     return res if len(res) == nums else []
 
-
 if __name__ == '__main__':
-    o = topo_sort2()
+    o = topo_sort1()
     print(o)
