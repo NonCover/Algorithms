@@ -7,12 +7,12 @@ def sort(arr):
     for i in range(1, len(arr)):
         j, v = i, arr[i]
         # 找到一个首个比v小的数，将v插入到这个数之后即可，后面的数依次向后移动一个
-        while arr[j - 1] > v and j > 0:
+        while j > 0 and arr[j - 1] > v:
             arr[j] = arr[j - 1]
             j -= 1
         arr[j] = v
 
 if __name__ == '__main__':
-    arr = [2, 1, 4, 5, 2, 6, 5]
+    arr = [2, 1, 4, 5, -1, 6, -4]
     sort(arr)
     print(arr)
