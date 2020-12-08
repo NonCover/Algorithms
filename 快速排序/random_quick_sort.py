@@ -1,5 +1,6 @@
 import random
 # 双指针
+
 def qs(arr, low, high):
     # print(arr[low:high+1])
     if (low > high):
@@ -35,9 +36,7 @@ def s(arr):
         qs(arr, 0, len(arr) - 1)
 
 if __name__ == "__main__":
-    # arr = [3, 2, 5, 4, -1, 3, 41, 5, 12, 3, 7]
-    # arr = [1,0]
-    arr = []
+    arr = [3, 2, 5, 4, -1, 3, 41, 5, 12, 3, 7]
     print(arr)
     s(arr)
     print(arr)
