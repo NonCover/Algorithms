@@ -67,7 +67,7 @@ def arr2tree(arr):
     return root
 
 if __name__ == '__main__':
-    arr = [3, 4, 5, None, 1, 7, 9]
+    arr = [5,3,6,2,4,None,8,1,None,None,None,7,9]
     root = arr2tree(arr)
     print("前序遍历: ", dlr(root))
     print("中序遍历: ", ldr(root))
