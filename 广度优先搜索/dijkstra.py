@@ -1,8 +1,13 @@
+'''
+算法错误
+The latest time : 2021年8月2日 19点11分
+'''
+
 import math
 graph = {
     'A':{'B':5, 'C':1},
     'B':{'D':1},
-    'C':{'D':4, 'E':8},
+    'C':{'D':6, 'E':8},
     'D':{'F':6},
     'E':{},
     'F':{}
@@ -38,12 +43,11 @@ def find_lowest_path(start, end):
             new_cost = cost + neighbors[n] # 记录节点的新开销
             if new_cost < costs[n]:
                 costs[n] = new_cost        # 更新节点的开销
-                parents[n] = node          # 更新节点的父节点
-            if n == end:    # 当前节点为要寻找的节点
-                    return costs[end], parents
+                parents[n] = node          # 更新节点的父节点D
         visted.add(node)
         node = find_lowest_node(costs, visted)  # 再去找最低开销的节点
+    return costs[end], parents
     # return costs
 
 if __name__ == "__main__":
-     print(find_lowest_path('A', 'E'))
+     print(find_lowest_path('A', 'F'))
