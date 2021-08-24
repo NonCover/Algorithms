@@ -34,7 +34,7 @@ def union(x, y, parent, depth):
 def find_root(x, parent):
     ## 找到当前节点的根节点
     root = x
-    ## 相当于找到值为 -1 的下标
+    ## 相当于找到值为 -1 的下标 
     while (parent[root] != -1):
         root = parent[root]
     return root
